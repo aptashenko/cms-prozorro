@@ -3,7 +3,7 @@
     <div class="start-view__window">
       <screen-button
         label="Почати навчання"
-        path="#"
+        :path="{name: 'education'}"
       />
       <screen-button
         label="Почати роботу"
@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import ScreenButton from "@/components/start-view/ScreenButton.vue";
+import ScreenButton from "@/components/pages/start-view/ScreenButton.vue";
 </script>
 
 <style lang="scss" scoped>

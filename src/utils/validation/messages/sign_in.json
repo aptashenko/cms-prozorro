@@ -1,0 +1,23 @@
+{
+  "email": {
+    "required": "Email number is required",
+    "minLength": "Email number is too short!",
+    "maxLength": "Email number is too long!",
+    "phoneMask": "Incorrect email number!"
+  },
+  "password": {
+    "required": "Passwords is required",
+    "minLength": "The password is too short!",
+    "maxLength": "The password is too long!"
+  },
+  "name": {
+    "required": "Name is required",
+    "minLength": "The name is too short!",
+    "maxLength": "The name is too long!"
+  },
+  "phone": {
+    "required": "Phone is required",
+    "minLength": "The phone is too short!",
+    "maxLength": "The phone is too long!"
+  }
+}

@@ -1,36 +1,58 @@
 <template>
   <div class="sign-in">
     <div class="sign-in__content">
+      <h2>
+        Увійти
+      </h2>
       <form
         id="sign-in"
-        class="sign-in__form">
-        <label
-          for="login"
-          class="sign-in__label">
-          Логін
-        </label>
-        <input
-          id="login"
-          class="sign-in__input" >
-        <label
-          for="password"
-          class="sign-in__label">
-          Пароль
-        </label>
-        <input
-          id="password"
-          class="sign-in__input" >
+        class="sign-in__form"
+        @submit.prevent="onSubmit"
+      >
+        <base-input
+          v-for="input of auth.forms.sign_in"
+          v-model="input.value"
+          :id="input.key"
+          :form="input"
+          :label="input.label"
+          :placeholder="input.placeholder"
+        />
       </form>
+      <p>
+        Немає аккаунту ? <RouterLink :to="{name: 'sign-up'}">Зареєструватись</RouterLink>
+      </p>
       <button
-        for="sign-in"
-        class="sign-in__button">
+        form="sign-in"
+        type="submit"
+        class="sign-in__button"
+      >
         Увійти
       </button>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import BaseInput from '@/components/ui/BaseInput/index.vue';
+import {useAuthStore} from "@/stores/auth-store.js";
+import { validationRules } from "@/utils/validation/rules/index.js";
+import {useFormValidate} from "@/composables/useFormValidate.js";
+const auth = useAuthStore();
+
+const { validate } = useFormValidate({
+  email: validationRules.email,
+  password: validationRules.password
+}, auth.forms.sign_in)
+
+
+const onSubmit = async () => {
+  const isValid = await validate();
+  if (isValid) {
+    auth.sign_in()
+  }
+}
+
+</script>
 
 <style lang="scss" scoped>
 .sign-in {
@@ -47,9 +69,9 @@
   }
 
   &__form {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   &__button {
