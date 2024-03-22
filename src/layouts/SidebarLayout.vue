@@ -1,7 +1,10 @@
 <template>
   <div class="sidebar-layout">
-    <the-sidebar>
-      <main-sidebar />
+    <the-sidebar
+      class="sidebar-layout__sidebar"
+      @expand="expandSidebar"
+    >
+      <education-list />
     </the-sidebar>
     <div class="sidebar-layout__content">
       <slot />
@@ -11,17 +14,36 @@
 
 <script setup>
 import TheSidebar from "@/components/the-sidebar/index.vue";
-import MainSidebar from "@/components/the-sidebar/components/MainSidebar.vue";
+import EducationList from "@/components/the-sidebar/components/education/EducationList.vue";
+import {computed} from "vue";
+
+import {useSidebarSettings} from "@/composables/useSidebarSettings.js";
+const { expanded } = useSidebarSettings()
+const sidebarWidth = computed(() => expanded.value ? '200px' : '400px')
 </script>
 
 <style lang="scss">
+
 .sidebar-layout {
-  height: 100%;
   display: flex;
 
+  &__sidebar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 99;
+    width: v-bind(sidebarWidth);
+    flex-shrink: 0;
+
+    transition: all .25s ease;
+  }
+
   &__content {
-    height: 100%;
-    flex-grow: 1;
+    padding: 30px;
+    flex: 1;
+    word-wrap: break-word;
+    width: calc(100% - v-bind(sidebarWidth));
   }
 }
 </style>

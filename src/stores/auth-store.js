@@ -13,8 +13,14 @@ export const useAuthStore = defineStore('auth-store', () => {
         router.push('/')
     }
 
+    const logout = () => {
+        localStorage.removeItem('token')
+        router.push('/')
+    }
+
     return {
         forms,
-        sign_in
+        sign_in,
+        logout
     }
 })

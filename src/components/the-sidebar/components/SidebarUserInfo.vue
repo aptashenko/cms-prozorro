@@ -4,26 +4,49 @@
       <div class="main-sidebar__image">
         A
       </div>
-      <div class="main-sidebar__info">
-        <p class="main-sidebar__name">Artem Ptashenko</p>
-        <p class="main-sidebar__phone">+38(050) 574-23-62</p>
-      </div>
+      <transition name="fade" mode="out-in">
+        <div
+          v-if="!expanded"
+          class="main-sidebar__info"
+        >
+          <p class="main-sidebar__name">Artem Ptashenko</p>
+          <p class="main-sidebar__phone">+38(050) 574-23-62</p>
+        </div>
+      </transition>
     </div>
     <div class="main-sidebar__logout">
-      <router-link
-        to="#"
+      <button
+        @click="auth.logout"
       >
         Вийти
-      </router-link>
+      </button>
     </div>
   </div>
 </template>
 
 <script setup>
+import {useSidebarSettings} from "@/composables/useSidebarSettings.js";
+import {useAuthStore} from "@/stores/auth-store.js";
 
+const { expanded } = useSidebarSettings()
+const auth = useAuthStore()
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .3s ease-in-out;
+}
+
+.fade-leave-active {
+  display: none !important;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 .main-sidebar {
   display: flex;
   align-items: flex-start;
@@ -54,6 +77,14 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+
+    & p {
+      text-overflow: ellipsis;
+
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 200px;
+    }
   }
 
   &__name {
@@ -66,7 +97,7 @@
     justify-content: center;
     height: 50px;
 
-    & a {
+    & button {
       color: #fff;
       padding: 2px 20px;
       background: rgba(0, 0, 0, 0.4);
