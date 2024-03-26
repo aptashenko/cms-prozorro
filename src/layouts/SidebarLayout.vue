@@ -2,7 +2,6 @@
   <div class="sidebar-layout">
     <the-sidebar
       class="sidebar-layout__sidebar"
-      @expand="expandSidebar"
     >
       <education-list />
     </the-sidebar>

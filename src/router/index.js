@@ -29,9 +29,14 @@ const router = createRouter({
             component: () => import('@/views/StartView.vue')
         },
         {
-            name: "education",
             path: "/education",
-            component: () => import('@/views/education/index.vue')
+            children: [
+                {path: '', name: 'education', component: () => import('@/views/education/index.vue')},
+                {path: 'video/:id', name: 'lesson-video', component: () => import('@/views/education/LessonVideo.vue')},
+                {path: 'text/:id', name: 'lesson-notes', component: () => import('@/views/education/LessonNotes.vue')},
+                {path: 'test/:id', name: 'lesson-test', component: () => import('@/views/education/LessonTest.vue')},
+                {path: 'homework/:id', name: 'lesson-homework', component: () => import('@/views/education/LessonHomework.vue')}
+            ]
         }
     ],
     scrollBehavior(to, from, savedPosition) {
