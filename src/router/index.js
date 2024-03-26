@@ -30,6 +30,7 @@ const router = createRouter({
         },
         {
             path: "/education",
+            name: 'education',
             children: [
                 {path: '', name: 'education', component: () => import('@/views/education/index.vue')},
                 {path: 'video/:id', name: 'lesson-video', component: () => import('@/views/education/LessonVideo.vue')},
@@ -44,7 +45,7 @@ const router = createRouter({
     }
 });
 
-router.beforeEach((to) => isAuth(to))
+router.beforeEach(to => isAuth(to))
 
 
 export default router;

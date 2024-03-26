@@ -1,0 +1,9 @@
+.popup-slide-enter-active,
+.popup-slide-leave-active {
+    transition: all 0.5s ease;
+}
+
+.popup-slide-enter-from,
+.popup-slide-leave-to {
+    opacity: 0;
+}

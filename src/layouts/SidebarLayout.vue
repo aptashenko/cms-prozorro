@@ -3,7 +3,7 @@
     <the-sidebar
       class="sidebar-layout__sidebar"
     >
-      <education-list />
+      <component :is="isEducationPage ? EducationList : null" />
     </the-sidebar>
     <div class="sidebar-layout__content">
       <slot />
@@ -17,8 +17,11 @@ import EducationList from "@/components/the-sidebar/components/education/Educati
 import {computed} from "vue";
 
 import {useSidebarSettings} from "@/composables/useSidebarSettings.js";
+import {useRoute} from "vue-router";
 const { expanded } = useSidebarSettings()
-const sidebarWidth = computed(() => expanded.value ? '200px' : '400px')
+const sidebarWidth = computed(() => expanded.value ? '200px' : '400px');
+const route = useRoute();
+const isEducationPage = computed(() => route.matched.some(item => item.name === 'education'))
 </script>
 
 <style lang="scss">
