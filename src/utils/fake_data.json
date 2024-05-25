@@ -1,0 +1,19 @@
+{
+  "name": "Artem",
+  "surname": "Ptashenko",
+  "contacts": {
+    "phone": "0505742362",
+    "email": "aptashenko2019@gmail.com"
+  },
+  "registration_date": "24.05.2024",
+  "available_courses": [
+    {
+      "id": "1",
+      "name": "Участь у публічних закупівлях",
+      "content": ["video1.mp4", "video2.mp4", "video3.mp4", "video4.mp4", "video5.mp4"],
+      "start_subscription": "26.05.2024",
+      "completed_content": ["video1.mp4", "video2.mp4"],
+      "cost": "2000"
+    }
+  ]
+}
