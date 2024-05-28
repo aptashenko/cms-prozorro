@@ -1,0 +1,1 @@
+.lesson-page{height:calc(100vh - 60px);display:flex}.lesson-page__title{margin-bottom:32px}.lesson-page__content{display:flex;align-items:flex-start;flex:1}.lesson-page__sidebar{width:200px;min-height:calc(100vh - 60px);box-shadow:#0000001a 0 1px 3px,#0000000f 0 1px 2px;padding:20px}.lesson-page__body{flex:1;min-height:calc(100vh - 60px);padding:20px}

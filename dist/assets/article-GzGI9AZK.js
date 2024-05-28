@@ -1,0 +1,1 @@
+import{_ as t,c,o as s,d as e}from"./index-toLvGH_n.js";const a={},o={class:"article-page"},_=e("h2",{class:"article-page__title"}," Стаття ### ",-1),n=e("div",{class:"article-page__content"},null,-1),r=[_,n];function i(l,d){return s(),c("div",o,r)}const f=t(a,[["render",i]]);export{f as default};
