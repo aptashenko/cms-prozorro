@@ -1,1 +1,0 @@
-.auth-page{height:100vh;display:grid;place-items:center}.auth-page__form{display:flex;flex-direction:column;gap:10px;border:1px solid #000;padding:15px}.auth-page__form label{display:flex;align-content:center;gap:10px}.auth-page__form label span{flex:1}
