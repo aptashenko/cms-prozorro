@@ -6,7 +6,6 @@ import {PrimeVueResolver} from 'unplugin-vue-components/resolvers';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/cms-prozorro/',
   plugins: [vue(),
     Components({
       resolvers: [

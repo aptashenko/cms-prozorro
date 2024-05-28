@@ -1,5 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LetsStart from "@/views/lets-start.vue";
+import AuthPage from "@/views/auth-page.vue";
+import Library from "@/views/library.vue";
+import Article from "@/views/article.vue";
+import Courses from "@/views/courses.vue";
+import Course from "@/views/course.vue";
+import Education from "@/views/education.vue";
+import Lesson from "@/views/lesson.vue";
+import Profile from "@/views/profile.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -12,47 +20,47 @@ const router = createRouter({
         {
             name: 'sign-in',
             path: '/sign-in',
-            component: import('@/views/auth-page.vue')
+            component: AuthPage
         },
         {
             name: 'sign-up',
             path: '/sign-up',
-            component: import('@/views/auth-page.vue')
+            component: AuthPage
         },
         {
             name: 'library',
             path: '/library',
-            component: import('@/views/library.vue')
+            component: Library
         },
         {
             name: 'article',
             path: '/article/:id',
-            component: import('@/views/article.vue')
+            component: Article
         },
         {
             name: 'all-courses',
             path: '/courses',
-            component: import('@/views/courses.vue')
+            component: Courses
         },
         {
             name: 'course',
             path: '/course/:id',
-            component: import('@/views/course.vue')
+            component: Course
         },
         {
             name: 'education',
             path: '/education/:id',
-            component: import('@/views/education.vue')
+            component: Education
         },
         {
             name: 'lesson',
             path: '/education/:id/lesson/:lesson',
-            component: import('@/views/lesson.vue')
+            component: Lesson
         },
         {
             name: 'profile',
             path: '/profile',
-            component: import('@/views/profile.vue')
+            component: Profile
         }
     ],
     scrollBehavior(to, from, savedPosition) {
