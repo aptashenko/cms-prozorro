@@ -44,6 +44,16 @@
         <span>Повторити пароль</span>
         <input type="password" >
       </label>
+      <div>
+        <label>
+          <span>Студент</span>
+          <input type="radio" name="type" >
+        </label>
+        <label>
+          <span>Викладач (в розробці)</span>
+          <input type="radio" name="type" >
+        </label>
+      </div>
       <button type="submit">
         Зареєструватись
       </button>

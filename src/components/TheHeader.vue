@@ -1,7 +1,9 @@
 <template>
   <div class="the-header">
     <div>
-      LOGO
+      <router-link to="/">
+        LOGO
+      </router-link>
     </div>
     <ul class="the-header__list">
       <li class="the-header__item">

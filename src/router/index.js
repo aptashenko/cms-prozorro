@@ -48,6 +48,11 @@ const router = createRouter({
             name: 'lesson',
             path: '/education/:id/lesson/:lesson',
             component: import('@/views/lesson.vue')
+        },
+        {
+            name: 'profile',
+            path: '/profile',
+            component: import('@/views/profile.vue')
         }
     ],
     scrollBehavior(to, from, savedPosition) {

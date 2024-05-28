@@ -8,7 +8,9 @@
           v-for="i of 20"
           :to="{name: 'article', params: {id: i}}"
           class="library__article"
-      />
+      >
+        Стаття {{i}}
+      </router-link>
     </div>
   </div>
 </template>
